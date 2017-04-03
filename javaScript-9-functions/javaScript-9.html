@@ -1,0 +1,69 @@
+<html>
+    <head>
+    
+        <title>JavaScript</title>
+        
+        
+        
+    </head>
+    <body>
+        
+        <p>How many fingers are you holding up?</p>
+        
+        <select id="inputNum">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        
+        <button id="checkNum">Check</button>
+        
+        <script type="text/javascript">
+            
+            function doAGuess(correctAnswer) {
+                
+                var computerGuess = Math.floor(Math.random() * 6);
+
+                if (correctAnswer == computerGuess) {
+
+                    return (true);
+                } else {
+
+                    return (false);
+                }
+
+                
+            }
+        
+            document.getElementById("checkNum").onclick = function() {
+                
+                var inputNum = document.getElementById("inputNum").value;
+                
+                var gotIt = false;
+                
+                var numOfGuesses = 1;
+                
+                while (gotIt == false) {
+                
+                    if (doAGuess(inputNum) == true) {
+
+                        // Computer in correct
+                        alert("Got it. It was a "+ inputNum + ". It took me " + numOfGuesses + " guesses!")
+                        gotIt = true
+
+                    } else {
+
+                        //Computer is worong
+                        numOfGuesses++;
+                    }
+
+                }
+            }
+            
+        </script>
+        
+    </body>
+    
+</html>
